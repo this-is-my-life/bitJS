@@ -1,0 +1,19 @@
+{
+  "name": "bitjs",
+  "version": "0.1.0",
+  "description": "JavaScript With Bits",
+  "main": "bit.js",
+  "scripts": {
+    "test": "node bit.js ./test/test.bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PMHStudio/bitJS.git"
+  },
+  "author": "PMH Studio / PMH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PMHStudio/bitJS/issues"
+  },
+  "homepage": "https://github.com/PMHStudio/bitJS#readme"
+}
