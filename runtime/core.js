@@ -33,13 +33,21 @@ module.exports = (target) => {
         break
 
       case '0100':
-        if (!memory[parseInt(arg0, 2)]) memory[parseInt(arg0, 2)] = 0
-        console.log(memory[parseInt(arg0, 2)])
+        let dum1 = ''
+        for (let counter = parseInt(arg0, 2); counter <= parseInt(arg1, 2); counter++) {
+          if (!memory[counter]) memory[counter] = 0
+          dum1 += memory[counter]
+        }
+        console.log(dum1)
         break
 
       case '0101':
-        if (!memory[parseInt(arg0, 2)]) memory[parseInt(arg0, 2)] = 0
-        console.log(String.fromCharCode(memory[parseInt(arg0, 2)]))
+        let dum2 = ''
+        for (let counter = parseInt(arg0, 2); counter <= parseInt(arg1, 2); counter++) {
+          if (!memory[counter]) memory[counter] = 0
+          dum2 += String.fromCharCode(memory[counter])
+        }
+        console.log(dum2)
         break
 
       case '1111':
