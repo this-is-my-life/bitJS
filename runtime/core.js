@@ -1,6 +1,10 @@
 const fs = require('fs')
 let memory = []
 
+for (let n = 0; n < 256; n++) {
+  memory[n] = 0
+}
+
 module.exports = (target) => {
   if (!target) {
     console.error('Wrong execute!')
@@ -8,6 +12,7 @@ module.exports = (target) => {
   }
   
   let data = fs.readFileSync(target)
+  let pnt = 0
   data = data.toString('utf8').split(' ').join('')
   data.split('\n').forEach((v, i) => {
     let command = v.slice(0, 4)
@@ -16,20 +21,19 @@ module.exports = (target) => {
 
     switch (command) {
       case '0000':
+        pnt = parseInt(arg0, 2)
         break
 
       case '0001':
-        memory[parseInt(arg0, 2)] = parseInt(arg1, 2)
+        memory[pnt] = parseInt(arg0, 2) <= 0 ? memory[parseInt(arg1, 2)] : parseInt(arg0, 2)
         break
 
       case '0010':
-        if (!memory[parseInt(arg0, 2)]) memory[parseInt(arg0, 2)] = 0
-        memory[parseInt(arg0, 2)] += parseInt(arg1, 2)
+        memory[pnt] += parseInt(arg0, 2) <= 0 ? memory[parseInt(arg1, 2)] : parseInt(arg0, 2)
         break
 
       case '0011':
-        if (!memory[parseInt(arg0, 2)]) memory[parseInt(arg0, 2)] = 0
-        memory[parseInt(arg0, 2)] -= parseInt(arg1, 2)
+        memory[pnt] -= parseInt(arg0, 2) <= 0 ? memory[parseInt(arg1, 2)] : parseInt(arg0, 2)
         break
 
       case '0100':
