@@ -4,7 +4,7 @@
   "description": "JavaScript With Bits",
   "main": "bit.js",
   "scripts": {
-    "test": "node bit.js ./test/test.bin"
+    "test": "node bit.js ./test/helloworld.bin"
   },
   "repository": {
     "type": "git",
